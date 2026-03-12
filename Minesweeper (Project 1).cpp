@@ -67,7 +67,22 @@ void placemines(bool mines[MAX_SIZE][MAX_SIZE],int boardsize,int minescount){
 
 //calculating adjacent mines
 int calculateadjacentmines (bool mines [MAX_SIZE][MAX_SIZE],int row,int column,int boardsize){
-    
+    int count =0;
+    for (int checkrow=-1;checkrow<=1;checkrow++){
+        for (int checkcolumn=-1;checkcolumn<=1;checkcolumn++){
+        if(checkrow==0&& checkcolumn==0){
+            //do nothing
+        }else{
+        int siderow=row+checkrow;
+        int sidecolumn=column+checkcolumn ;
+        if (siderow>=0&&siderow<boardsize&&sidecolumn>=0&&sidecolumn<boardsize){
+            if (mines[siderow][sidecolumn])
+             count ++;
+            }
+        }
+    }
+    }
+    return count;
 }
 
 
